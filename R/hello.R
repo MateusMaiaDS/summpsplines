@@ -35,8 +35,8 @@ x_test <- as.data.frame(x_new)
 
 # Testing the mpsBART
 bart_test <- rsp_sampler(x_train = x,y = unlist(c(y)),n_splines = 10,
-                         n_mcmc = 2500,n_dif = 2,
-                         nIknots = 30,delta = 1,df = 3,
+                         n_mcmc = 3500,n_dif = 0,
+                         nIknots = 10,delta = 1,df = 3,
                          sigquant = 0.9,nu = 2,
                          a_delta = 0.0001,d_delta = 0.0001,
                          n_burn = 1000,scale_y = TRUE)

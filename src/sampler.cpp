@@ -183,7 +183,7 @@ void tau_b_sampler(arma::cube& betas,
             for(int k = 0; k < data.n_splines;k++){
                 // Calculating the shape and rate parameter
                 tau_b_shape_counter(j) = tau_b_shape_counter(j) + data.p;
-                tau_b_rate_counter(j) =  tau_b_shape_counter(j) + arma::as_scalar(betas.slice(k).col(j).t()*data.P*betas.slice(k).col(j));
+                tau_b_rate_counter(j) =  tau_b_rate_counter(j) + arma::as_scalar(betas.slice(k).col(j).t()*data.P*betas.slice(k).col(j));
             }
             data.tau_b(j) = R::rgamma(0.5*data.nu+0.5*tau_b_shape_counter(j),1/(0.5*data.nu*data.delta(j)+0.5*tau_b_rate_counter(j)));
     }
