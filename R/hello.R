@@ -20,7 +20,7 @@ friedman_no_interaction <- function (n, sd = 1)
   list(x = x, y = y)
 }
 
-sd_ <- 1
+sd_ <- 0.1
 fried_sim <- friedman_no_interaction(n = n_,sd = sd_)
 fried_sim_new_sample <- friedman_no_interaction(n = n_,sd = sd_)
 
@@ -34,8 +34,8 @@ x_test <- as.data.frame(x_new)
 
 
 # Testing the mpsBART
-bart_test <- rsp_sampler(x_train = x,y = unlist(c(y)),
-                         n_mcmc = 3500,n_dif = 1,
+bart_test <- rsp_sampler(x_train = x,y = unlist(c(y)),n_splines = 10,
+                         n_mcmc = 2500,n_dif = 2,
                          nIknots = 30,delta = 1,df = 3,
                          sigquant = 0.9,nu = 2,
                          a_delta = 0.0001,d_delta = 0.0001,

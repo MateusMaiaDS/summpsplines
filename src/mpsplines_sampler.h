@@ -11,6 +11,7 @@ struct modelParam{
   // BART prior param specification
   int p;
   int d;
+  int n_splines;
   arma::vec tau_b;
   double tau_b_intercept;
   double tau;
@@ -32,6 +33,7 @@ struct modelParam{
   // Defining the constructor for the model param
   modelParam(arma::cube B_train_,
              arma::mat y_,
+             int n_splines,
              double tau_b_,
              double tau_b_intercept_,
              double tau_,

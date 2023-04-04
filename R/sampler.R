@@ -6,6 +6,7 @@ D_gen <- function(p, n_dif){
 # Wrapping the model with a R code
 rsp_sampler <- function(x_train,
                    y,
+                   n_splines,
                    nIknots,
                    df = 3,
                    sigquant = 0.9,
@@ -101,7 +102,8 @@ rsp_sampler <- function(x_train,
   tau_init <- nsigma^(-2)
   tau_init <- 50
 
-  sampler_list <- sp_sampler(B_train = B_train,
+  sampler_list <- sum_sp_sampler(B_train = B_train,
+                                 n_splines = n_splines,
                              D_m = D,
                              y = as.matrix(y_scale),tau_b = tau_b,tau_b_intercept = tau_b_0,
                              tau = tau_init,a_tau = a_tau,d_tau = d_tau,
